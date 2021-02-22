@@ -1,0 +1,1 @@
+Pastas dos dias retiradas para caber no github
