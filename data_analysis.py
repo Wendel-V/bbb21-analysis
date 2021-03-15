@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 from matplotlib import pyplot as plt
-
+%matplotlib inline
 
 # Puxa o csv do usuario e trata as colunas
 def pushUserData(user_name):
@@ -49,6 +49,7 @@ def compare_plot(data, user):
     ax = plt.subplot(3, 1, 1)
     ax.set_title(f'Análise dos seguidores de @{user}', fontsize = 18, loc = 'center')
     
+    sns.set_style('whitegrid')
     g1 = sns.lineplot(x = 'data' , y = 'seguidores', data = data, linewidth = 5)
     g1.figure.set_size_inches(15,17)
     g1.set_xlabel('Tempo', fontsize=14)
@@ -72,7 +73,7 @@ def compare_plot(data, user):
     plt.close()
 
 
-    
+# Gera gráfico da média de perda por dia da semana  
 def plot_mean_loss_by_day(data, user):
     aux_col = []
     for item in data['dif_seguidores']:
@@ -108,7 +109,9 @@ def plot_mean_loss_by_day(data, user):
     plt.close()
     
     
-    
+
+# Gera um gráfico para cara um nas suas respectivas pastas
+
 def generate_all_compare(file_name):
     file = open('participantes/usuarios/' + file_name + '.txt')
     user_list = file.read().split()
